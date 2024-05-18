@@ -472,48 +472,42 @@
         }
 
        /* Contractor Info Section Styles */
+/* Contractor Info Section Styles */
 .contractor-info {
     display: flex;
+    flex-direction: column; /* Change to column layout for mobile */
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
 }
 
 .contractor-img {
-    width: 600px;
+    max-width: 100%; /* Adjusted to fit the container */
     height: auto;
-    margin-right: 40px;
-  
+    margin-bottom: 20px; /* Add margin for spacing */
 }
 
 .contractor-details {
-    max-width: 600px;
-    text-align: left;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.contractor-details p {
-    margin: 10px 0;
-}
-
-/* Animation for Contractor Image */
-.contractor-img:hover {
-    transform: translateY(-5px);
+    text-align: center; /* Center align text */
+    font-size: 18px; /* Increase font size for better readability */
+    line-height: 1.8; /* Increase line height for better spacing */
 }
 
 /* Media Query for Mobile Devices */
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
     .contractor-info {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row; /* Change to row layout for larger screens */
+        justify-content: space-around; /* Evenly distribute items horizontally */
+        align-items: flex-start; /* Align items at the start of the container */
+        text-align: left; /* Left align text */
     }
     
     .contractor-img {
-        margin-right: 0;
-        margin-bottom: 20px;
+        max-width: 40%; /* Adjusted to occupy less space on larger screens */
+        margin-bottom: 0; /* Remove bottom margin for spacing */
     }
 }
+
 
 
     </style>
