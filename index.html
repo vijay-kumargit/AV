@@ -78,53 +78,62 @@
         }
         nav {
             display: flex;
-            flex-direction: column; /* Changed for mobile */
-            gap: 10px; /* Adjusted for mobile */
-            background-color: #FFFFFF; /* White */
-            position: absolute;
-            top: 60px; /* Adjusted for mobile */
-            left: 0;
-            width: 100%;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: max-height 0.3s ease-out;
-            overflow: hidden;
-            max-height: 0;
-        }
-        nav.show {
-            max-height: 300px; /* Adjusted for mobile */
+            justify-content: center;
+            gap: 20px;
         }
         nav a {
             color: #000000; /* Black */
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 5px;
-            transition: color 0.3s ease, background-color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
             background-color: #FFFFFF; /* White */
         }
         nav a:hover {
-            color: #16697A; /* Custom color */
-            background-color: #f5f5f5; /* Custom color */
+            color: #16697A; /* White */
+            transform: scale(1.1);
         }
 
         /* Media Query for Mobile Devices */
-        @media only screen and (min-width: 601px) {
+        @media only screen and (max-width: 600px) {
             nav {
+                display: none;
+                flex-direction: column;
+                background-color: #FFFFFF; /* White */
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: max-height 0.3s ease-out;
+                overflow: hidden;
+                max-height: 0;
+            }
+            nav.show {
                 display: flex;
-                flex-direction: row; /* Reset to horizontal for larger screens */
-                position: static;
-                max-height: none;
-                background-color: transparent; /* Transparent background for larger screens */
-                box-shadow: none; /* No box shadow for larger screens */
-                padding: 0;
+                max-height: 300px; /* Adjust as needed */
             }
             nav a {
-                padding: 10px 15px;
-                border-radius: 5px;
-                background-color: transparent; /* Transparent background for larger screens */
+                margin-bottom: 10px;
             }
-            nav a:hover {
-                background-color: #f5f5f5; /* Custom color */
+            .menu-icon {
+                display: block; /* Display the hamburger icon only on mobile */
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                cursor: pointer;
+                z-index: 999;
+            }
+            header {
+                padding-top: 50px; /* Added to create space for the hamburger icon */
+            }
+        }
+
+        /* Hide the hamburger icon on larger screens */
+        @media only screen and (min-width: 601px) {
+            .menu-icon {
+                display: none;
             }
         }
 
@@ -140,24 +149,25 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(22, 105, 122, 0.9), rgba(22, 105, 122, 0.6)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;
-            color: white;
-            height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
             text-align: center;
+            color: white;
+            padding: 100px 0;
+            background: linear-gradient(rgba(22, 105, 122, 0.9), rgba(22, 105, 122, 0.6)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;
             transition: background 0.5s ease;
         }
-        .hero:hover {
-            background: linear-gradient(rgba(22, 105, 122, 0.6), rgba(22, 105, 122, 0.9)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
         .hero h1 {
             font-size: 3em;
-            transition: color 0.5s ease;
+            margin-bottom: 20px;
+          color:#fff;
         }
-        .hero:hover h1 {
-            color: #FFFFFF; /* White */
+        .hero-description {
+            font-size: 1.2em;
+            line-height: 1.6;
         }
 
         /* Services Section */
@@ -169,12 +179,11 @@
         }
         .service-items {
             display: flex;
+            justify-content: space-around;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px; /* Adjusted for mobile */
         }
         .service-item {
-            flex: 1 1 calc(50% - 20px);
+            flex: 1 1 calc(33% - 20px);
             margin: 10px;
             padding: 20px;
             background: #FFFFFF; /* White */
@@ -188,8 +197,122 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* ... (similar adjustments for other sections) ... */
+        /* Projects Section */
+        .projects {
+            text-align: center;
+        }
+        .projects h2 {
+            margin-bottom: 40px;
+        }
+        .project-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .project-item {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            padding: 0;
+            background: #FFFFFF; /* White */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform
+ 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
+        /* Pricing Section */
+        .pricing {
+            text-align: center;
+        }
+        .pricing h2 {
+            margin-bottom: 40px;
+        }
+        .pricing-tables {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .pricing-table {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background: #FFFFFF; /* White */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-table:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            text-align: center;
+        }
+        .testimonials h2 {
+            margin-bottom: 40px;
+        }
+        .testimonial-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .testimonial-item {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background: #FFFFFF; /* White */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+        .contact h2 {
+            margin-bottom: 40px;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #16697A;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: #0b4d63;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -200,12 +323,12 @@
             <div class="logo">
                 <div class="logo-text">AV Constructions</div>
                 <div class="logo-icon">
-                    <!-- Replaced
                     <!-- Replaced SVG with a more detailed building icon -->
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 22V9L12 2L21 9V22H3Z" fill="#16697A"/>
                         <path d="M9 22V14H15V22" stroke="black" stroke-width="2"/>
-                        <path d="M12 2V9M12 9H21M12 12 9H3M3 9L12 2M21 9L12 2" stroke="black" stroke-width="2"/>
+                        <path d="M12 2V9M12 9H21M12
+                        12 9H3M3 9L12 2M21 9L12 2" stroke="black" stroke-width="2"/>
                     </svg>
                 </div>
             </div>
@@ -216,20 +339,24 @@
                 <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" fill="#000000"/>
             </svg>
         </div>
+        <!-- Navigation Links -->
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
-    <!-- Navigation Links -->
-    <nav>
-        <a href="#hero">Home</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
-    </nav>
     <!-- Hero Section -->
     <section id="hero" class="hero" style="background: linear-gradient(rgba(22, 105, 122, 0.9), rgba(22, 105, 122, 0.6)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;">
-        <h1>Welcome to AV Constructions</h1>
-        <p>Building the future, one project at a time.</p>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to AV Constructions</h1>
+                <p class="hero-description">Building the future, one project at a time.</p>
+            </div>
+        </div>
     </section>
     <!-- Services Section -->
     <section id="services" class="services">
@@ -238,29 +365,112 @@
             <div class="service-items">
                 <div class="service-item">
                     <img src="https://source.unsplash.com/random/400x300/?construction" alt="Service 1">
-                    <h3>Service 1</h3>
-                    <p>Details about Service 1.</p>
+                    <h3>Commercial Construction</h3>
+                    <p>Constructing commercial buildings such as offices, retail stores, restaurants, and healthcare facilities, meeting the unique needs of businesses and organizations.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://source.unsplash.com/random/400x300/?building" alt="Service 2">
-                    <h3>Service 2</h3>
-                    <p>Details about Service 2.</p>
+                    <img src="https://source.unsplash.com/random/400x
+300/?construction" alt="Service 2">
+                    <h3>Renovation and Remodeling</h3>
+                    <p>Specializing in renovating existing structures or spaces, transforming them into modern and functional environments.</p>
                 </div>
                 <div class="service-item">
-                <img src="https://source.unsplash.com/random/400x300/?architecture" alt="Service 3">
-                    <h3>Service 3</h3>
-                    <p>Details about Service 3.</p>
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Service 3">
+                    <h3>Custom Home Building</h3>
+                    <p>Building custom-designed homes tailored to clients' specifications, preferences, and lifestyle requirements.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Service 3">
+                    <h3>Elevations and Interior Designs</h3>
+                    <p>Building custom-designed homes tailored to clients' specifications, preferences, and lifestyle requirements.</p>
+                </div>
+            </div>
+            </div>
+          
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <div class="project-items">
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
+                    <h3>Hellen Keller Institute</h3>
+                    <p>An institution for deaf and dumb students. It was a privilage to work for honourable Chairman Patan Umar Khan garu.</p>
+                </div>
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 2">
+                    <h3>Project 2</h3>
+                    <p>Details about Project 2.</p>
+                </div>
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 3">
+                    <h3>Project 3</h3>
+                    <p>Details about Project 3.</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Projects Section -->
     <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Pricing Plans per Sft</h2>
+            <div class="pricing-tables">
+                <div class="pricing-table">
+                    <h3>Basic Plan</h3>
+                    <p>Details about the Basic Plan.</p>
+                    <p><strong>₹1600</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+                <div class="pricing-table">
+                    <h3>Standard Plan</h3>
+                    <p>Details about the Standard Plan.</p>
+                    <p><strong>₹1800</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+                <div class="pricing-table">
+                    <h3>Premium Plan</h3>
+                    <p>Details about the Premium Plan.</p>
+                    <p><strong>₹2000</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-items">
+                <div class="testimonial-item">
+                    <p>Testimonial 1</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Testimonial 2</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Testimonial 3</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea placeholder="Your Message"></textarea>
+                <button>Send Message</button>
+            </div>
+        </div>
+    </section>
     <script>
+        // Function to toggle the mobile navigation menu
         function toggleMenu() {
-            const nav = document.querySelector('nav');
+            var nav = document.querySelector('nav');
             nav.classList.toggle('show');
         }
     </script>
