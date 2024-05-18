@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AV Constructions - Home</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .section:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #16697A;
+        }
+        p {
+            margin: 0 0 20px;
+        }
+
+        /* CSS for Header */
+        header {
+            background-color: #FFFFFF; /* White */
+            color: #000000; /* Black */
+            padding: 10px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .logo-container {
+            perspective: 1000px;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+            width: 200px; /* Adjusted for better visibility */
+            height: 50px;
+        }
+        .logo-text, .logo-icon {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-text {
+            color: #16697A; /* Custom color */
+        }
+        .logo-icon {
+            transform: rotateY(180deg);
+        }
+        .logo-container:hover .logo {
+            transform: rotateY(180deg);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #000000; /* Black */
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            background-color: #FFFFFF; /* White */
+        }
+        nav a:hover {
+            color: #16697A; /* White */
+            
+            transform: scale(1.1);
+        }
+
+        /* Media Query for Mobile Devices */
+        @media only screen and (max-width: 600px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background-color: #FFFFFF; /* White */
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: max-height 0.3s ease-out;
+                overflow: hidden;
+                max-height: 0;
+            }
+            nav.show {
+                display: flex;
+                max-height: 300px; /* Adjust as needed */
+            }
+            nav a {
+                margin-bottom: 10px;
+            }
+            .menu-icon {
+                display: block; /* Display the hamburger icon only on mobile */
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                cursor: pointer;
+                z-index: 999;
+            }
+            header {
+                padding-top: 50px; /* Added to create space for the hamburger icon */
+            }
+        }
+
+        /* Hide the hamburger icon on larger screens */
+        @media only screen and (min-width: 601px) {
+            .menu-icon {
+                display: none;
+            }
+        }
+
+        /* Animation for the header */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(22, 105, 122, 0.9), rgba(22, 105, 122, 0.6)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;
+            color: white;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: background 0.5s ease;
+        }
+        .hero:hover {
+            background: linear-gradient(rgba(22, 105, 122, 0.6), rgba(22, 105, 122, 0.9)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;
+        }
+        .hero h1 {
+            font-size: 3em;
+            transition: color 0.5s ease;
+        }
+        .hero:hover h1 {
+            color: #FFFFFF; /* White */
+        }
+
+        /* Services Section */
+        .services {
+            text-align: center;
+        }
+        .services h2 {
+            margin-bottom: 40px;
+        }
+        .service-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .service-item {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background: #FFFFFF; /* White */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Projects Section */
+        .projects {
+            text-align: center;
+        }
+        .projects h2 {
+            margin-bottom: 40px;
+        }
+        .project-items {
+            display: flex;
+            justify-content: space-around;
+           
+flex-wrap: wrap;
+        }
+        .project-item {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            padding: 0;
+            background: #FFFFFF; /* White */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .project-item img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            text-align: center;
+        }
+        .pricing h2 {
+            margin-bottom: 40px;
+        }
+        .pricing-tables {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .pricing-table {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background: #FFFFFF; /* White */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-table:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            text-align: center;
+        }
+        .testimonials h2 {
+            margin-bottom: 40px;
+        }
+        .testimonial-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .testimonial-item {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background: #FFFFFF; /* White */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+        .contact h2 {
+            margin-bottom: 40px;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #16697A;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: #0b4d63;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <div class="logo">
+                <div class="logo-text">AV Constructions</div>
+                <div class="logo-icon">
+                    <!-- Replaced SVG with a more detailed building icon -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 22V9L12 2L21 9V22H3Z" fill="#16697A"/>
+                        <path d="M9 22V14H15V22" stroke="black" stroke-width="2"/>
+                        <path d="M12 2V9M12 9H21M12
+12 9H3M3 9L12 2M21 9L12 2" stroke="black" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- Hamburger Icon -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" fill="#000000"/>
+            </svg>
+        </div>
+        <!-- Navigation Links -->
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section id="hero" class="hero" style="background: linear-gradient(rgba(22, 105, 122, 0.9), rgba(22, 105, 122, 0.6)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;">
+        <h1>Welcome to AV Constructions</h1>
+        <p>Building the future, one project at a time.</p>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-items">
+                <div class="service-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Service 1">
+                    <h3>Service 1</h3>
+                    <p>Details about Service 1.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://source.unsplash.com/random/400x300/?building" alt="Service 2">
+                    <h3>Service 2</h3>
+                    <p>Details about Service 2.</p>
+                </div>
+                <div class="service-item">
+                <img src="https://source.unsplash.com/random/400x300/?architecture" alt="Service 3">
+                    <h3>Service 3</h3>
+                    <p>Details about Service 3.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <div class="project-items">
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
+                    <h3>Project 1</h3>
+                </div>
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?building" alt="Project 2">
+                    <h3>Project 2</h3>
+                </div>
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?architecture" alt="Project 3">
+                    <h3>Project 3</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-tables">
+                <div class="pricing-table">
+                    <h3>Basic Plan</h3>
+                    <p>Details about the Basic Plan.</p>
+                    <p><strong>$1000</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+                <div class="pricing-table">
+                    <h3>Standard Plan</h3>
+                    <p>Details about the Standard Plan.</p>
+                    <p><strong>$2000</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+                <div class="pricing-table">
+                    <h3>Premium Plan</h3>
+                    <p>Details about the Premium Plan.</p>
+                    <p><strong>$3000</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-items">
+                <div class="testimonial-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Client 1">
+                    <p>"AV Constructions did a fantastic job on our new office. Highly recommend!"</p>
+                    <p><strong>- Client 1</strong></p>
+                </div>
+                <div class="testimonial-item">
+                    <img src="https://source.unsplash.com/random/400x300/?building" alt="Client 2">
+                    <p>"Their attention to detail and professionalism is unmatched. Love our new home!"</p>
+                    <p><strong>- Client 2</strong></p>
+                </div>
+                <div class="testimonial-item">
+                    <img src="https://source.unsplash.com/random/400x300/?architecture" alt="Client 3
+                <div class="service-item">
+                    <img src="https://source.unsplash.com/random/400x300/?architecture" alt="Service 3">
+                    <h3>Service 3</h3>
+                    <p>Details about Service 3.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <div class="project-items">
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
+                    <h3>Project 1</h3>
+                </div>
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?building" alt="Project 2">
+                    <h3>Project 2</h3>
+                </div>
+                <div class="project-item">
+                    <img src="https://source.unsplash.com/random/400x300/?architecture" alt="Project 3">
+                    <h3>Project 3</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-tables">
+                <div class="pricing-table">
+                    <h3>Basic Plan</h3>
+                    <p>Details about the Basic Plan.</p>
+                    <p><strong>$1000</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+                <div class="pricing-table">
+                    <h3>Standard Plan</h3>
+                    <p>Details about the Standard Plan.</p>
+                    <p><strong>$2000</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+                <div class="pricing-table">
+                    <h3>Premium Plan</h3>
+                    <p>Details about the Premium Plan.</p>
+                    <p><strong>$3000</strong></p>
+                    <button>Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-items">
+                <div class="testimonial-item">
+                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Client 1">
+                    <p>"AV Constructions did a fantastic job on our new office. Highly recommend!"</p>
+                    <p><strong>- Client 1</strong></p>
+                </div>
+                <div class="testimonial-item">
+                    <img src="https://source.unsplash.com/random/400x300/?building" alt="Client 2">
+                    <p>"Their attention to detail and professionalism is unmatched. Love our new home!"</p>
+                    <p><strong>- Client 2</strong></p>
+                </div>
+                <div class="testimonial-item">
+                    <img src="https://source.unsplash.com/random/400x300/?architecture" alt="Client 3">
+                    <p>"Excellent service from start to finish. We couldn't be happier with the results."</p>
+                    <p><strong>- Client 3</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('show');
+        }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(function(navLink) {
+            navLink.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
