@@ -139,13 +139,16 @@
             }
 
             .menu-icon {
-                display: block;
-                position: absolute;
-                top: 10px;
-                right: 20px;
-                cursor: pointer;
-                z-index: 999;
-            }
+    display: block;
+
+    position: absolute;
+    top: 70%; /* Adjust the vertical position */
+    right: 20px;
+    cursor: pointer;
+    z-index: 999;
+    transform: translateY(-50%); /* Center vertically */
+}
+
 
             header {
                 padding-top: 50px;
@@ -277,7 +280,8 @@
 
         .project-item h3 {
             padding: 10px;
-            background-color: #f5f5f5;
+            background
+-color: #f5f5f5;
             margin: 0;
         }
 
@@ -390,6 +394,19 @@
             background-color: #0B3C4D;
         }
 
+        .contact .whatsapp-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .contact .whatsapp-link img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
         /* Footer Section */
         footer {
             background-color: #333333;
@@ -431,7 +448,81 @@
                 flex: 1 1 100%;
             }
         }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            
+            border-radius: 50%;
+            border-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+       /* Contractor Info Section Styles */
+.contractor-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.contractor-img {
+    width: 600px;
+    height: auto;
+    margin-right: 40px;
+  
+}
+
+.contractor-details {
+    max-width: 600px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.contractor-details p {
+    margin: 10px 0;
+}
+
+/* Animation for Contractor Image */
+.contractor-img:hover {
+    transform: translateY(-5px);
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 768px) {
+    .contractor-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contractor-img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+
     </style>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init(""); // Replace with your EmailJS user ID
+        })();
+    </script>
 </head>
 
 <body>
@@ -452,10 +543,23 @@
         </nav>
     </header>
 
-    <section class="hero section">
+     <section class="hero section">
         <h1>Welcome to AV Constructions</h1>
         <p>Your trusted partner in building dreams</p>
     </section>
+<section class="contractor-info section">
+    <h2>Meet Our Contractor</h2>
+    <img class="contractor-img" src="contractor.png" alt="Contractor Image">
+    <div class="contractor-details">
+        <p><strong>Name:</strong> Gunja Venkatarao</p>
+        <p><strong>Education:</strong> BSc</p>
+        <p><strong>Location:</strong> Hyderabad, Telangana</p>
+        <p><strong>Experience:</strong> 25 years</p>
+        <p><strong>Specialization:</strong> Building Construction, Road Construction, GHMC Works</p>
+        <p><strong>Projects:</strong> Buildings, Apartments, Roads, Drains</p>
+        <p><strong>Native Place:</strong> Ongole, Andhra Pradesh</p>
+    </div>
+</section>
 
     <section id="services" class="services section animated slideInUp">
         <h2>Our Services</h2>
@@ -526,17 +630,17 @@
         <div class="pricing-tables">
             <div class="pricing-table">
                 <h3>Basic</h3>
-                <p>$1000 / project</p>
+                <p>₹1600 / Sqft</p>
                 <p>Includes basic design and consultation services.</p>
             </div>
             <div class="pricing-table">
                 <h3>Standard</h3>
-                <p>$5000 / project</p>
+                <p>₹1800 / Sqft</p>
                 <p>Includes standard construction and project management services.</p>
             </div>
             <div class="pricing-table">
                 <h3>Premium</h3>
-                <p>$10000 / project</p>
+                <p>₹2000 / Sqft</p>
                 <p>Includes premium design, construction, and management services.</p>
             </div>
         </div>
@@ -559,28 +663,47 @@
 
     <section id="contact" class="contact section animated slideInUp">
         <h2>Contact Us</h2>
-        <form>
+        <form id="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
             <button type="submit">Send Message</button>
         </form>
+       
     </section>
 
     <footer>
         <p>&copy; 2024 AV Constructions. All rights reserved.</p>
     </footer>
 
-    <script>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/9515352618" target="_blank">
+            <img src="whatsapp.png" alt="WhatsApp"style="width: 50px; height: 50px;">
+        </a>
+    </div>
+
+     <script>
         function toggleMenu() {
-            var menu = document.getElementById("nav-menu");
-            if (menu.classList.contains("show")) {
-                menu.classList.remove("show");
-            } else {
-                menu.classList.add("show");
-            }
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('show');
         }
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const serviceID = 'service_cxmnprc'; // Replace with your EmailJS service ID
+            const templateID = 'template_w5arc4p'; // Replace with your EmailJS template ID
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    alert('Message sent successfully!');
+                    this.reset();
+                }, (err) => {
+                    alert('Failed to send message. Please try again.');
+                    console.error('Send email error:', err);
+                });
+        });
     </script>
 </body>
-
 </html>
