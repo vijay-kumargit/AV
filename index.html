@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,28 +14,37 @@
             color: #333;
             background-color: #f5f5f5;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+
         .section {
             padding: 60px 0;
         }
+
         .section:nth-child(even) {
             background-color: #f9f9f9;
         }
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             color: #16697A;
+            text-align: center;
         }
+
         p {
             margin: 0 0 20px;
+            text-align: center;
         }
 
         /* CSS for Header */
         header {
-            background-color: #FFFFFF; /* White */
-            color: #000000; /* Black */
+            background-color: #FFFFFF;
+            color: #000000;
             padding: 10px 20px;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -44,19 +54,23 @@
             align-items: center;
             animation: fadeIn 1s ease-in-out;
         }
+
         .logo-container {
             perspective: 1000px;
         }
+
         .logo {
             font-size: 1.5em;
             font-weight: bold;
             transition: transform 0.6s;
             transform-style: preserve-3d;
             position: relative;
-            width: 200px; /* Adjusted for better visibility */
+            width: 200px;
             height: 50px;
         }
-        .logo-text, .logo-icon {
+
+        .logo-text,
+        .logo-icon {
             backface-visibility: hidden;
             position: absolute;
             top: 0;
@@ -67,30 +81,36 @@
             align-items: center;
             justify-content: center;
         }
+
         .logo-text {
-            color: #16697A; /* Custom color */
+            color: #16697A;
         }
+
         .logo-icon {
             transform: rotateY(180deg);
         }
+
         .logo-container:hover .logo {
             transform: rotateY(180deg);
         }
+
         nav {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
+
         nav a {
-            color: #000000; /* Black */
+            color: #000000;
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 5px;
             transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-            background-color: #FFFFFF; /* White */
+            background-color: #FFFFFF;
         }
+
         nav a:hover {
-            color: #16697A; /* White */
+            color: #16697A;
             transform: scale(1.1);
         }
 
@@ -99,7 +119,7 @@
             nav {
                 display: none;
                 flex-direction: column;
-                background-color: #FFFFFF; /* White */
+                background-color: #FFFFFF;
                 position: absolute;
                 top: 50px;
                 left: 0;
@@ -110,23 +130,27 @@
                 overflow: hidden;
                 max-height: 0;
             }
+
             nav.show {
                 display: flex;
-                max-height: 300px; /* Adjust as needed */
+                max-height: 300px;
             }
+
             nav a {
                 margin-bottom: 10px;
             }
+
             .menu-icon {
-                display: block; /* Display the hamburger icon only on mobile */
+                display: block;
                 position: absolute;
                 top: 10px;
                 right: 20px;
                 cursor: pointer;
                 z-index: 999;
             }
+
             header {
-                padding-top: 50px; /* Added to create space for the hamburger icon */
+                padding-top: 50px;
             }
         }
 
@@ -142,6 +166,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -149,104 +174,127 @@
 
         /* Hero Section */
         .hero {
-            position: relative;
-            text-align: center;
+            background: linear-gradient(rgba(22, 105, 122, 0.9), rgba(22, 105, 122, 0.6)), url('https://source.unsplash.com/random/1080x1920/?construction') no-repeat center center/cover;
             color: white;
-            padding: 100px 0;
-            background: linear-gradient(rgba(22, 105, 122, 0.9), rgba(22, 105, 122, 0.6)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             transition: background 0.5s ease;
         }
-        .hero-content {
-            max-width: 600px;
-            margin: 0 auto;
+
+        .hero:hover {
+            background: linear-gradient(rgba(22, 105, 122, 0.6), rgba(22, 105, 122, 0.9)), url('https://source.unsplash.com/random/1080x1920/?construction') no-repeat center center/cover;
         }
+
         .hero h1 {
             font-size: 3em;
-            margin-bottom: 20px;
-          color:#fff;
+            transition: color 0.5s ease;
         }
-        .hero-description {
-            font-size: 1.2em;
-            line-height: 1.6;
+
+        .hero:hover h1 {
+            color: #FFFFFF;
         }
 
         /* Services Section */
         .services {
             text-align: center;
         }
+
         .services h2 {
             margin-bottom: 40px;
         }
+
         .service-items {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
+
         .service-item {
-            flex: 1 1 calc(33% - 20px);
+            flex: 1 1 calc(100% - 40px);
             margin: 10px;
             padding: 20px;
-            background: #FFFFFF; /* White */
+            background: #FFFFFF;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .service-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item img {
+            max-width: 100%;
+            border-radius: 8px;
         }
 
         /* Projects Section */
         .projects {
             text-align: center;
         }
+
         .projects h2 {
             margin-bottom: 40px;
         }
+
         .project-items {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
+
         .project-item {
-            flex: 1 1 calc(33% - 20px);
+            flex: 1 1 calc(100% - 40px);
             margin: 10px;
             padding: 0;
-            background: #FFFFFF; /* White */
+            background: #FFFFFF;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform
- 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .project-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-item img {
+            width: 100%;
+            display: block;
         }
 
         /* Pricing Section */
         .pricing {
             text-align: center;
         }
+
         .pricing h2 {
             margin-bottom: 40px;
         }
+
         .pricing-tables {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
+
         .pricing-table {
-            flex: 1 1 calc(33% - 20px);
+            flex: 1 1 calc(100% - 40px);
             margin: 10px;
             padding: 20px;
-            background: #FFFFFF; /* White */
+            background: #FFFFFF;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .pricing-table:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -256,24 +304,28 @@
         .testimonials {
             text-align: center;
         }
+
         .testimonials h2 {
             margin-bottom: 40px;
         }
+
         .testimonial-items {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
+
         .testimonial-item {
-            flex: 1 1 calc(33% - 20px);
+            flex: 1 1 calc(100% - 40px);
             margin: 10px;
             padding: 20px;
-            background: #FFFFFF; /* White */
+            background: #FFFFFF;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .testimonial-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -283,65 +335,95 @@
         .contact {
             text-align: center;
         }
+
         .contact h2 {
             margin-bottom: 40px;
         }
-        .contact-form {
+
+        .contact form {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
+
+        .contact form input,
+        .contact form textarea {
+            width: 80%;
             max-width: 600px;
             padding: 10px;
-            margin: 10px 0;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
-        .contact-form button {
+
+        .contact form button {
             padding: 10px 20px;
             background-color: #16697A;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease;
         }
-        .contact-form button:hover {
-            background-color: #0b4d63;
-            transform: scale(1.05);
+
+        .contact form button:hover {
+            background-color: #0B3C4D;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333333;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .slideInUp {
+            animation-name: slideInUp;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .service-item,
+            .project-item,
+            .pricing-table,
+            .testimonial-item {
+                flex: 1 1 100%;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Header -->
     <header>
-        <!-- Logo Container -->
         <div class="logo-container">
             <div class="logo">
                 <div class="logo-text">AV Constructions</div>
-                <div class="logo-icon">
-                    <!-- Replaced SVG with a more detailed building icon -->
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 22V9L12 2L21 9V22H3Z" fill="#16697A"/>
-                        <path d="M9 22V14H15V22" stroke="black" stroke-width="2"/>
-                        <path d="M12 2V9M12 9H21M12
-                        12 9H3M3 9L12 2M21 9L12 2" stroke="black" stroke-width="2"/>
-                    </svg>
-                </div>
+                <div class="logo-icon">🏗️</div>
             </div>
         </div>
-        <!-- Hamburger Icon -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" fill="#000000"/>
-            </svg>
-        </div>
-        <!-- Navigation Links -->
-        <nav>
-            <a href="#hero">Home</a>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
             <a href="#services">Services</a>
             <a href="#projects">Projects</a>
             <a href="#pricing">Pricing</a>
@@ -349,130 +431,136 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
-    <!-- Hero Section -->
-    <section id="hero" class="hero" style="background: linear-gradient(rgba(22, 105, 122, 0.9), rgba(22, 105, 122, 0.6)), url('https://source.unsplash.com/random/1920x600/?construction') no-repeat center center/cover;">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Welcome to AV Constructions</h1>
-                <p class="hero-description">Building the future, one project at a time.</p>
+
+    <section class="hero section">
+        <h1>Welcome to AV Constructions</h1>
+        <p>Your trusted partner in building dreams</p>
+    </section>
+
+    <section id="services" class="services section animated slideInUp">
+        <h2>Our Services</h2>
+        <div class="service-items">
+            <div class="service-item">
+                <h3>Architectural Design</h3>
+                <p>Expertise in designing residential, commercial, and industrial spaces.</p>
+            </div>
+            <div class="service-item">
+                <h3>Construction Management</h3>
+                <p>Comprehensive project management services from planning to completion.</p>
+            </div>
+            <div class="service-item">
+                <h3>General Contracting</h3>
+                <p>Coordinating and supervising all construction activities.</p>
+            </div>
+            <div class="service-item">
+                <h3>Renovation and Remodeling</h3>
+                <p>Transforming existing structures into modern and functional spaces.</p>
+            </div>
+            <div class="service-item">
+                <h3>Interior Design</h3>
+                <p>Creating aesthetically pleasing and functional interior spaces.</p>
+            </div>
+            <div class="service-item">
+                <h3>Green Building Solutions</h3>
+                <p>Eco-friendly construction practices and materials.</p>
+            </div>
+            <div class="service-item">
+                <h3>Landscaping and Outdoor Design</h3>
+                <p>Enhancing properties with beautiful outdoor spaces.</p>
+            </div>
+            <div class="service-item">
+                <h3>Consulting Services</h3>
+                <p>Expert advice on construction-related matters.</p>
+            </div>
+            <div class="service-item">
+                <h3>Custom Home Building</h3>
+                <p>Building homes tailored to clients' specifications.</p>
+            </div>
+            <div class="service-item">
+                <h3>Commercial Construction</h3>
+                <p>Constructing commercial buildings for businesses.</p>
             </div>
         </div>
     </section>
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-items">
-                <div class="service-item">
-                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Service 1">
-                    <h3>Commercial Construction</h3>
-                    <p>Constructing commercial buildings such as offices, retail stores, restaurants, and healthcare facilities, meeting the unique needs of businesses and organizations.</p>
-                </div>
-                <div class="service-item">
-                    <img src="https://source.unsplash.com/random/400x
-300/?construction" alt="Service 2">
-                    <h3>Renovation and Remodeling</h3>
-                    <p>Specializing in renovating existing structures or spaces, transforming them into modern and functional environments.</p>
-                </div>
-                <div class="service-item">
-                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Service 3">
-                    <h3>Custom Home Building</h3>
-                    <p>Building custom-designed homes tailored to clients' specifications, preferences, and lifestyle requirements.</p>
-                </div>
-                <div class="service-item">
-                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Service 3">
-                    <h3>Elevations and Interior Designs</h3>
-                    <p>Building custom-designed homes tailored to clients' specifications, preferences, and lifestyle requirements.</p>
-                </div>
+
+    <section id="projects" class="projects section animated slideInUp">
+        <h2>Our Projects</h2>
+        <div class="project-items">
+            <div class="project-item">
+                <img src="https://source.unsplash.com/random/1080x1920/?building1" alt="Project 1">
+                <h3>Residential Complex</h3>
             </div>
+            <div class="project-item">
+                <img src="https://source.unsplash.com/random/1080x1920/?building2" alt="Project 2">
+                <h3>Office Building</h3>
             </div>
-          
-        </div>
-    </section>
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Our Projects</h2>
-            <div class="project-items">
-                <div class="project-item">
-                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
-                    <h3>Hellen Keller Institute</h3>
-                    <p>An institution for deaf and dumb students. It was a privilage to work for honourable Chairman Patan Umar Khan garu.</p>
-                </div>
-                <div class="project-item">
-                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 2">
-                    <h3>Project 2</h3>
-                    <p>Details about Project 2.</p>
-                </div>
-                <div class="project-item">
-                    <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 3">
-                    <h3>Project 3</h3>
-                    <p>Details about Project 3.</p>
-                </div>
+            <div class="project-item">
+                <img src="https://source.unsplash.com/random/1080x1920/?building3" alt="Project 3">
+                <h3>Shopping Mall</h3>
             </div>
         </div>
     </section>
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>Pricing Plans per Sft</h2>
-            <div class="pricing-tables">
-                <div class="pricing-table">
-                    <h3>Basic Plan</h3>
-                    <p>Details about the Basic Plan.</p>
-                    <p><strong>₹1600</strong></p>
-                    <button>Choose Plan</button>
-                </div>
-                <div class="pricing-table">
-                    <h3>Standard Plan</h3>
-                    <p>Details about the Standard Plan.</p>
-                    <p><strong>₹1800</strong></p>
-                    <button>Choose Plan</button>
-                </div>
-                <div class="pricing-table">
-                    <h3>Premium Plan</h3>
-                    <p>Details about the Premium Plan.</p>
-                    <p><strong>₹2000</strong></p>
-                    <button>Choose Plan</button>
-                </div>
+
+    <section id="pricing" class="pricing section animated slideInUp">
+        <h2>Pricing Plans</h2>
+        <div class="pricing-tables">
+            <div class="pricing-table">
+                <h3>Basic</h3>
+                <p>$1000 / project</p>
+                <p>Includes basic design and consultation services.</p>
+            </div>
+            <div class="pricing-table">
+                <h3>Standard</h3>
+                <p>$5000 / project</p>
+                <p>Includes standard construction and project management services.</p>
+            </div>
+            <div class="pricing-table">
+                <h3>Premium</h3>
+                <p>$10000 / project</p>
+                <p>Includes premium design, construction, and management services.</p>
             </div>
         </div>
     </section>
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>Testimonials</h2>
-            <div class="testimonial-items">
-                <div class="testimonial-item">
-                    <p>Testimonial 1</p>
-                </div>
-                <div class="testimonial-item">
-                    <p>Testimonial 2</p>
-                </div>
-                <div class="testimonial-item">
-                    <p>Testimonial 3</p>
-                </div>
+
+    <section id="testimonials" class="testimonials section animated slideInUp">
+        <h2>Testimonials</h2>
+        <div class="testimonial-items">
+            <div class="testimonial-item">
+                <p>"AV Constructions did an amazing job on our new office building. Highly recommend!" - John D.</p>
+            </div>
+            <div class="testimonial-item">
+                <p>"Their team transformed our old home into a modern masterpiece. Thank you!" - Sarah K.</p>
+            </div>
+            <div class="testimonial-item">
+                <p>"Professional and reliable. We couldn't be happier with our new retail space." - Mike T.</p>
             </div>
         </div>
     </section>
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-form">
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <textarea placeholder="Your Message"></textarea>
-                <button>Send Message</button>
-            </div>
-        </div>
+
+    <section id="contact" class="contact section animated slideInUp">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
+
+    <footer>
+        <p>&copy; 2024 AV Constructions. All rights reserved.</p>
+    </footer>
+
     <script>
-        // Function to toggle the mobile navigation menu
         function toggleMenu() {
-            var nav = document.querySelector('nav');
-            nav.classList.toggle('show');
+            var menu = document.getElementById("nav-menu");
+            if (menu.classList.contains("show")) {
+                menu.classList.remove("show");
+            } else {
+                menu.classList.add("show");
+            }
         }
     </script>
 </body>
+
 </html>
