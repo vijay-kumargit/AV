@@ -189,6 +189,7 @@
             font-size: 3em;
             transition: color 0.5s ease;
             margin: 0;
+            color:#fff;
         }
 
         .hero p {
@@ -452,7 +453,7 @@
         /* Floating WhatsApp Button */
         .floating-whatsapp {
             position: fixed;
-            bottom: 20px;
+            bottom: 70px;
             right: 20px;
             width: 60px;
             height: 60px;
@@ -471,50 +472,146 @@
             transform: scale(1.1);
         }
 
-       /* Contractor Info Section Styles */
 /* Contractor Info Section Styles */
 .contractor-info {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #dbe9ec 100%);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.contractor-info h2 {
+    margin-bottom: 20px;
+    color: #16697A;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #16697A, #50B3C6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.contractor-content {
     display: flex;
-    flex-direction: column; /* Change to column layout for mobile */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    gap: 20px;
+    transition: transform 0.3s ease;
 }
 
 .contractor-img {
-    max-width: 100%; /* Adjusted to fit the container */
-    height: auto;
-    margin-bottom: 20px; /* Add margin for spacing */
+    width: 600px;  /* Increased width */
+    height: 600px; /* Increased height */
+    border-radius: 20px; /* Add a bit of rounded corners to the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow to the image */
 }
 
 .contractor-details {
-    text-align: center; /* Center align text */
-    font-size: 18px; /* Increase font size for better readability */
-    line-height: 1.8; /* Increase line height for better spacing */
+    background: linear-gradient(135deg, #ffffff 0%, #e0f7fa 100%);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(22, 105, 122, 0.3); /* Add a subtle border */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    max-width: 700px; /* Adjusted max-width */
+    width: 100%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Media Query for Mobile Devices */
+.contractor-details p {
+    margin: 15px 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ffffff 0%, #e0f7fa 100%);
+}
+
+.contractor-details p strong {
+    color: #16697A;
+}
+
+.contractor-details:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Slightly lift the card on hover */
+}
+
+/* Media Query for larger screens */
 @media only screen and (min-width: 768px) {
-    .contractor-info {
-        flex-direction: row; /* Change to row layout for larger screens */
-        justify-content: space-around; /* Evenly distribute items horizontally */
-        align-items: flex-start; /* Align items at the start of the container */
-        text-align: left; /* Left align text */
+    .contractor-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
     }
-    
+
     .contractor-img {
-        max-width: 40%; /* Adjusted to occupy less space on larger screens */
-        margin-bottom: 0; /* Remove bottom margin for spacing */
+        width: 400px;  /* Adjusted width for larger screens */
+        height: 400px; /* Adjusted height for larger screens */
+    }
+
+    .contractor-details {
+        max-width: none;
+        width: 60%;
+    }
+}
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+
+ .scroll-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1597BB;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .scroll-button:hover {
+            background-color: #114F5C;
+            transform: scale(1.1);
+        }
+       .scroll-button1 {
+            position: fixed;
+            bottom: 20px;
+            right: 50px;
+            background-color: #1597BB;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .scroll-button1:hover {
+            background-color: #114F5C;
+            transform: scale(1.1);
+        }
 
 
     </style>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         (function () {
-            emailjs.init(""); // Replace with your EmailJS user ID
+            emailjs.init("USER_ID"); // Replace with your EmailJS user ID
         })();
     </script>
 </head>
@@ -529,31 +626,36 @@
         </div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <nav id="nav-menu">
+            <a href="#hero">Home</a>
             <a href="#services">Services</a>
             <a href="#projects">Projects</a>
             <a href="#pricing">Pricing</a>
             <a href="#testimonials">Testimonials</a>
+            <a href="#contractor">Contractor</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-     <section class="hero section">
+     <section id="hero" class="hero section">
         <h1>Welcome to AV Constructions</h1>
         <p>Your trusted partner in building dreams</p>
     </section>
-<section class="contractor-info section">
+<section id="contractor" class="contractor-info section">
     <h2>Meet Our Contractor</h2>
-    <img class="contractor-img" src="contractor.png" alt="Contractor Image">
-    <div class="contractor-details">
-        <p><strong>Name:</strong> Gunja Venkatarao</p>
-        <p><strong>Education:</strong> BSc</p>
-        <p><strong>Location:</strong> Hyderabad, Telangana</p>
-        <p><strong>Experience:</strong> 25 years</p>
-        <p><strong>Specialization:</strong> Building Construction, Road Construction, GHMC Works</p>
-        <p><strong>Projects:</strong> Buildings, Apartments, Roads, Drains</p>
-        <p><strong>Native Place:</strong> Ongole, Andhra Pradesh</p>
+    <div class="contractor-content">
+        <img class="contractor-img" src="contractor.svg" alt="Contractor Image">
+        <div class="contractor-details">
+            <p><strong>Name:</strong> Gunja Venkatarao</p>
+            <p><strong>Education:</strong> BSc</p>
+            <p><strong>Location:</strong> Hyderabad, Telangana</p>
+            <p><strong>Experience:</strong> 25 years</p>
+            <p><strong>Specialization:</strong> Building Construction, Road Construction, GHMC Works</p>
+            <p><strong>Projects:</strong> Buildings, Apartments, Roads, Drains</p>
+            <p><strong>Native Place:</strong> Ongole, Andhra Pradesh</p>
+        </div>
     </div>
 </section>
+
 
     <section id="services" class="services section animated slideInUp">
         <h2>Our Services</h2>
@@ -641,10 +743,10 @@
     </section>
 
     <section id="testimonials" class="testimonials section animated slideInUp">
-        <h2>Testimonials</h2>
+        <h2>What our Clients Say</h2>
         <div class="testimonial-items">
             <div class="testimonial-item">
-                <p>"AV Constructions did an amazing job on our new office building. Highly recommend!" - John D.</p>
+                <p>"AV Constructions did an amazing job on our new office building. Highly recommend!" - Patan Umar Khan, Hellen keller Chairman.</p>
             </div>
             <div class="testimonial-item">
                 <p>"Their team transformed our old home into a modern masterpiece. Thank you!" - Sarah K.</p>
@@ -669,7 +771,8 @@
     <footer>
         <p>&copy; 2024 AV Constructions. All rights reserved.</p>
     </footer>
-
+    <button class="scroll-button1" onclick="scrollToTop()">↑</button>       
+  <button class="scroll-button" onclick="scrollToBottom()">↓</button>
 
     <!-- WhatsApp Floating Button -->
     <div class="floating-whatsapp">
@@ -698,6 +801,19 @@
                     console.error('Send email error:', err);
                 });
         });
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>
