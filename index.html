@@ -355,46 +355,217 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
+/* Contact Us Section Styles */
+.contact-us {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ececec 0%, #d4e4e7 100%);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        /* Contact Section */
-        .contact {
-            text-align: center;
-        }
+.contact-us h2 {
+    margin-bottom: 30px;
+    color: #16697A;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #16697A, #50B3C6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: textGlow 2s infinite alternate;
+}
 
-        .contact h2 {
-            margin-bottom: 40px;
-        }
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
 
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.contact-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    max-width: 600px;
+    width: 100%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    backdrop-filter: blur(10px);
+}
 
-        .contact form input,
-        .contact form textarea {
-            width: 80%;
-            max-width: 600px;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+.contact-form:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
 
-        .contact form button {
-            padding: 10px 20px;
-            background-color: #16697A;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+    position: relative;
+}
 
-        .contact form button:hover {
-            background-color: #0B3C4D;
-        }
+.contact-form label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, #50B3C6, #16697A);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
 
+.contact-form input:focus + label::before,
+.contact-form textarea:focus + label::before {
+    transform: scaleX(1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #16697A;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form button {
+    background: linear-gradient(135deg, #16697A, #50B3C6);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+    transition: left 0.3s ease;
+}
+
+.contact-form button:hover::before {
+    left: 100%;
+}
+
+.contact-form button:hover {
+    background: linear-gradient(135deg, #145D6B, #3E8DAF);
+    transform: scale(1.05);
+}
+
+.gif-container {
+    text-align: center;
+}
+
+.contact-gif {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .contact-us h2 {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        padding: 30px;
+    }
+
+    .contact-form label {
+        font-size: 16px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .contact-form button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-us h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-form label {
+        font-size: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .contact-form button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
         .contact .whatsapp-link {
             display: flex;
             align-items: center;
@@ -408,17 +579,94 @@
             margin-right: 10px;
         }
 
-        /* Footer Section */
-        footer {
-            background-color: #333333;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 20px 0;
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 40px 0;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        width: 100px;
+        height: auto;
+    }
+
+    .footer-logo h1 {
+        font-size: 24px;
+        margin: 10px 0 0;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #50B3C6;
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .footer-socials a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+        transition: color 0.3s ease;
+    }
+
+    .footer-socials a:hover {
+        color: #50B3C6;
+    }
+
+    .footer-bottom {
+        margin-top: 20px;
+        border-top: 1px solid #555;
+        padding-top: 10px;
+        font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
         }
 
-        footer p {
-            margin: 0;
+        .footer-links {
+            justify-content: center;
+            gap: 10px;
         }
+    }
 
         @keyframes slideInUp {
             from {
@@ -611,7 +859,7 @@
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         (function () {
-            emailjs.init("USER_ID"); // Replace with your EmailJS user ID
+            emailjs.init("rIqEMNq9PCfLV9fGx"); // Replace with your EmailJS user ID
         })();
     </script>
 </head>
@@ -707,15 +955,15 @@
         <h2>Our Projects</h2>
         <div class="project-items">
             <div class="project-item">
-                <img src="https://source.unsplash.com/random/1080x1920/?building1" alt="Project 1">
+                <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
                 <h3>Residential Complex</h3>
             </div>
             <div class="project-item">
-                <img src="https://source.unsplash.com/random/1080x1920/?building2" alt="Project 2">
+                <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
                 <h3>Office Building</h3>
             </div>
             <div class="project-item">
-                <img src="https://source.unsplash.com/random/1080x1920/?building3" alt="Project 3">
+                <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
                 <h3>Shopping Mall</h3>
             </div>
         </div>
@@ -746,7 +994,7 @@
         <h2>What our Clients Say</h2>
         <div class="testimonial-items">
             <div class="testimonial-item">
-                <p>"AV Constructions did an amazing job on our new office building. Highly recommend!" - Patan Umar Khan, Hellen keller Chairman.</p>
+                <p>"AV Constructions did an amazing job on our new office building. Highly recommend!"- Patan UmarKhan, Hellen keller Chairman.</p>
             </div>
             <div class="testimonial-item">
                 <p>"Their team transformed our old home into a modern masterpiece. Thank you!" - Sarah K.</p>
@@ -757,20 +1005,53 @@
         </div>
     </section>
 
-    <section id="contact" class="contact section animated slideInUp">
+    <section id="contact" class="contact-us">
         <h2>Contact Us</h2>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-       
+        <div class="contact-content">
+            <form class="contact-form" id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
     </section>
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <footer>
-        <p>&copy; 2024 AV Constructions. All rights reserved.</p>
-    </footer>
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!--<img src="path/to/logo.png" alt="AV Constructions Logo">-->
+                <h1>AV Constructions</h1>
+            </div>
+            <div class="footer-links">
+                <a href="#hero">Home</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contractor">Contractor</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-socials">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AV Constructions. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
     <button class="scroll-button1" onclick="scrollToTop()">↑</button>       
   <button class="scroll-button" onclick="scrollToBottom()">↓</button>
 
