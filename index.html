@@ -781,10 +781,7 @@
     color: #16697A;
 }
 
-.contractor-details:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px); /* Slightly lift the card on hover */
-}
+
 
 /* Media Query for larger screens */
 @media only screen and (min-width: 768px) {
@@ -853,7 +850,67 @@
             background-color: #114F5C;
             transform: scale(1.1);
         }
+ .statistics-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      background: linear-gradient(to bottom, #eaf1f6, #f0f5fa);
+      padding: 50px 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
+    .statistics-item {
+      text-align: center;
+      transition: transform 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .number {
+      font-size: 36px;
+      color: #3f3f3f;
+      font-weight: bold;
+      animation: animateNumber 2s;
+    }
+
+    .label {
+      font-size: 16px;
+      color: #3f3f3f;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+
+    .statistics-item:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes animateNumber {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .statistics-section {
+        flex-direction: row;
+      }
+    }
 
     </style>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -902,9 +959,22 @@
             <p><strong>Native Place:</strong> Ongole, Andhra Pradesh</p>
         </div>
     </div>
+<br>
+<section class="statistics-section">
+  <div class="statistics-item" style="animation: fadeIn 1s;">
+    <div id="projects" class="number">0</div>
+    <div class="label">Projects Completed</div>
+  </div>
+  <div class="statistics-item" style="animation: fadeIn 2s;">
+    <div id="clients" class="number">0</div>
+    <div class="label">Clients Served</div>
+  </div>
+  <div class="statistics-item" style="animation: fadeIn 3s;">
+    <div id="locations" class="number">0</div>
+    <div class="label">Locations Covered</div>
+  </div>
 </section>
-
-
+</section>
     <section id="services" class="services section animated slideInUp">
         <h2>Our Services</h2>
         <div class="service-items">
@@ -951,23 +1021,24 @@
         </div>
     </section>
 
-    <section id="projects" class="projects section animated slideInUp">
-        <h2>Our Projects</h2>
-        <div class="project-items">
-            <div class="project-item">
-                <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
-                <h3>Residential Complex</h3>
-            </div>
-            <div class="project-item">
-                <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
-                <h3>Office Building</h3>
-            </div>
-            <div class="project-item">
-                <img src="https://source.unsplash.com/random/400x300/?construction" alt="Project 1">
-                <h3>Shopping Mall</h3>
-            </div>
+<section id="projects" class="projects section animated slideInUp">
+    <h2>Our Projects</h2>
+    <div class="project-items">
+        <div class="project-item">
+            <img src="https://source.unsplash.com/random/400x300/?residential,house" alt="Residential Complex">
+            <h3>Residential Complex</h3>
         </div>
-    </section>
+        <div class="project-item">
+            <img src="https://source.unsplash.com/random/400x300/?office,building" alt="Office Building">
+            <h3>Office Building</h3>
+        </div>
+        <div class="project-item">
+            <img src="https://source.unsplash.com/random/400x300/?shopping,mall" alt="Shopping Mall">
+            <h3>Shopping Mall</h3>
+        </div>
+    </div>
+</section>
+
 
     <section id="pricing" class="pricing section animated slideInUp">
         <h2>Pricing Plans</h2>
@@ -1095,6 +1166,30 @@
                 behavior: 'smooth'
             });
         }
+        //numbers scroll
+        function animateValue(id, start, end, duration) {
+    if (start === end) return;
+    var range = end - start;
+    var current = start;
+    var increment = end > start ? 1 : -1;
+    var stepTime = Math.abs(Math.floor(duration / range));
+    var obj = document.getElementById(id);
+    var timer = setInterval(function () {
+      current += increment;
+      obj.innerHTML = current+"+";
+      if (current === end) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+  }
+
+  function startAnimation() {
+    animateValue("projects", 0, 80, 3000);
+    animateValue("clients", 0, 120, 3000);
+    animateValue("locations", 0, 50, 3000);
+  }
+
+  document.addEventListener("DOMContentLoaded", startAnimation);
     </script>
 </body>
 </html>
